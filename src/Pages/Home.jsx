@@ -11,7 +11,6 @@ const Home = () => {
   return (
     <>
       <div className=' bg-black'>
-        <Navbar></Navbar>
         <div className="px-30 py-100  text-white" style={{
           backgroundImage: `url(${'/assets/images/C.jpg'})`,
           backgroundPosition: "center",

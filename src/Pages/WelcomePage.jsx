@@ -1,9 +1,25 @@
 import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../Services/Firebase";
 
 export const WelcomePage = () => {
-    const navigate = useNavigate();
     const [showLogin, setShowLogin] = useState(false);
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const navigate = useNavigate();
+
+    const handleLogin = async (e) => {
+        e.preventDefault();
+        try {
+            await signInWithEmailAndPassword(auth, email, password);
+            console.log("User Logged in Successfully");
+            navigate("/home");
+        } catch (error) {
+            console.log(error.message);
+        }
+    }
+
     return (
         <>
             <div className="px-30 py-10 bg-black text-white" style={{
@@ -44,8 +60,7 @@ export const WelcomePage = () => {
                                 <button className="bg-red-600 p-5 text-center px-25 ">Get Started</button>
                             </div>
                             <div>
-                                <button className="bg-red-600 px-5 py-2 rounded font-bold"
-                                    onClick={() => navigate("/home")} >
+                                <button className="bg-red-600 px-5 py-2 rounded font-bold">
                                     Sign Up
                                 </button>
                             </div>
@@ -53,22 +68,31 @@ export const WelcomePage = () => {
                     ) : (
                         <>
                             <div className="py-10">
-                                <div className="flex flex-col gap-5 bg-black p-6  w-[400px] h-[300px] items-center ">
-                                    <div className="font-bold mt-5">Login</div>
-                                    <input
-                                        className="border p-2 border-gray-500 bg-white text-black w-[250px]"
-                                        type="email"
-                                        placeholder="Email Address"
-                                    />
-                                    <input
-                                        className="border p-2 border-gray-500 bg-white text-black  w-[250px]"
-                                        type="password"
-                                        placeholder="Password"
-                                    />
-                                    <button className="bg-red-600 p-2 font-bold text-center w-[250px]"
-                                        onClick={() => navigate("/home")}>
-                                        Login
-                                    </button>
+                                <div className="flex flex-col gap-5 bg-black p-6 w-[400px] h-[300px]">
+                                    <form onSubmit={handleLogin}
+                                        className="flex flex-col items-center gap-4">
+                                        <div className="font-bold mt-5">Login</div>
+                                        <input
+                                            className="border p-2 border-gray-500 bg-white text-black w-[250px]"
+                                            type="email"
+                                            placeholder="Email Address"
+                                            value={email}
+                                            onChange={(e) => setEmail(e.target.value)}
+                                            required
+                                        />
+                                        <input
+                                            className="border p-2 border-gray-500 bg-white text-black  w-[250px]"
+                                            type="password"
+                                            placeholder="Password"
+                                            value={password}
+                                            onChange={(e) => setPassword(e.target.value)}
+                                            required
+                                        />
+                                        <button className="bg-red-600 p-2 font-bold text-center w-[250px]"
+                                            type="submit">
+                                            Login
+                                        </button>
+                                    </form>
                                 </div>
                             </div>
                         </>
