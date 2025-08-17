@@ -1,5 +1,5 @@
 import React from 'react'
-import { getPopularMovies } from '../Services/Api'
+import { getPopularMovies } from '../Services/api'
 import { useEffect } from 'react'
 import { useState } from 'react'
 

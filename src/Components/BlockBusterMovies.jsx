@@ -1,7 +1,7 @@
 import React from 'react'
 import { useEffect } from 'react'
 import { useState } from 'react'
-import { getBlockBusterMovies } from '../Services/Api'
+import { getBlockBusterMovies } from '../Services/api'
 
 function Blockbuster() {
     const [movies, setMovies] = useState([]);

@@ -1,7 +1,7 @@
 import React from 'react'
 import { useEffect } from 'react'
 import { useState } from 'react'
-import { getActionMovies } from '../Services/Api'
+import { getActionMovies } from '../Services/api'
 
 function ActionMovies() {
     const [movies, setMovies] = useState([]);

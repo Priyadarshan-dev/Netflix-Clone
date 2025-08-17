@@ -1,7 +1,7 @@
 import React from 'react'
 import { useEffect } from 'react'
 import { useState } from 'react'
-import { getEpic } from '../Services/Api';
+import { getEpic } from '../Services/api';
 
 
 function Epic() {

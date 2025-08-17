@@ -3,7 +3,7 @@ import React from 'react'
 function TvShows() {
   return (
     <>
-      <div></div>
+      <div className='bg-black'></div>
     </>
   )
 }
