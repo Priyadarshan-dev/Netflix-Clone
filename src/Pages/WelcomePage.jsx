@@ -22,10 +22,8 @@ export const WelcomePage = () => {
 
     return (
         <>
-            <div className="px-30 py-10 bg-black text-white" style={{
-                backgroundImage: `url(${'/assets/images/D.jpg'})`,
-                backgroundSize: "cover",
-                backgroundRepeat: "no-repeat",
+            <div className="px-30 py-10 relative w-full h-[700px] bg-cover bg-center bg-no-repeat text-white" style={{
+                backgroundImage: `url(${'/assets/images/D.jpg'})`
             }}>
                 <div className="flex justify-between items-center">
                     <div className="text-4xl font-bold text-red-600">
@@ -41,7 +39,7 @@ export const WelcomePage = () => {
 
                     </div>
                 </div>
-                <div className="py-30 flex flex-col items-center">
+                <div className="py-30 flex flex-col items-center" >
                     {!showLogin ? (
                         <>
                             <div className="text-6xl font-bold w-150 text-center">
@@ -68,7 +66,7 @@ export const WelcomePage = () => {
                     ) : (
                         <>
                             <div className="py-10">
-                                <div className="flex flex-col gap-5 bg-black p-6 w-[400px] h-[300px]">
+                                <div className="flex flex-col gap-5 p-6 w-[400px] h-[300px]" style={{ backgroundColor: "rgba(0,0,0,0.69)" }}>
                                     <form onSubmit={handleLogin}
                                         className="flex flex-col items-center gap-4">
                                         <div className="font-bold mt-5">Login</div>
@@ -104,4 +102,3 @@ export const WelcomePage = () => {
 }
 
 export default WelcomePage
-
