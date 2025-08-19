@@ -6,6 +6,7 @@ import { searchMovies } from '../Services/api'
 
 const Navbar = () => {
     const navigate = useNavigate()
+    const [isOpen, setIsOpen] = useState(false);
     const [showSearch, setShowSearch] = useState(false)
     const [searchQuery, setSearchQuery] = useState("")
     const [movies, setMovies] = useState([])
@@ -29,14 +30,22 @@ const Navbar = () => {
 
     return (
         <>
-            <nav className='flex bg-black px-20 py-8 gap-10'>
-                <div className="text-4xl font-bold text-red-600">NETFLIX</div>
-                <NavLink to="/home" className="text-white py-3">Home</NavLink>
-                <NavLink to="/tvshows" className="text-white py-3">Tv Shows</NavLink>
-                <NavLink to="/movies" className="text-white py-3">Movies</NavLink>
-                <NavLink to="/mylist" className="text-white py-3">My List</NavLink>
-
-                <div className='flex gap-7 ml-auto text-white text-xl items-center'>
+            <nav className='flex items-center bg-black px-6 py-6'>
+                <div className='flex items-center gap-10'>
+                    <div className="text-3xl md:text-4xl font-bold text-red-600">NETFLIX</div>
+                    <div className="hidden md:flex gap-10">
+                        <NavLink to="/home" className="text-white py-3">Home</NavLink>
+                        <NavLink to="/tvshows" className="text-white py-3">Tv Shows</NavLink>
+                        <NavLink to="/movies" className="text-white py-3">Movies</NavLink>
+                        <NavLink to="/mylist" className="text-white py-3">My List</NavLink>
+                    </div>
+                </div>
+                <button
+                    onClick={() => setIsOpen(!isOpen)}
+                    className='md:hidden text-white text-2xl w-[100px]'>
+                    ☰
+                </button>
+                <div className='flex items-center gap-7 text-white text-xl ml-auto'>
                     {showSearch ? (
                         <form onSubmit={handleSearch} className='flex items-center bg-gray-800 rounded'>
                             <i className="fa-solid fa-magnifying-glass px-2"></i>
@@ -58,6 +67,14 @@ const Navbar = () => {
                     </button>
                 </div>
             </nav>
+            {isOpen && (
+                <div className='absolute top-16 left-0 w-full bg-gray-900 flex flex-col items-center space-y-4 py-4 md:hidden z-50'>
+                    <NavLink to="/home" className="text-white text-xl" onClick={() => setIsOpen(false)}>Home</NavLink>
+                    <NavLink to="/tvshows" className="text-white text-xl" onClick={() => setIsOpen(false)}>Tv Shows</NavLink>
+                    <NavLink to="/movies" className="text-white text-xl" onClick={() => setIsOpen(false)}>Movies</NavLink>
+                    <NavLink to="/mylist" className="text-white text-xl" onClick={() => setIsOpen(false)}>My List</NavLink>
+                </div>
+            )}
             {movies.length > 0 && (
                 <div className='bg-black px-9 py-5'>
                     <div className='flex gap-5 overflow-x-auto hide-scrollbar'>
@@ -76,11 +93,11 @@ const Navbar = () => {
                                         {movie.title}
                                     </h3>
                                     <div className="flex items-center gap-2">
-                                        <button className="bg-white text-black px-2 py-1 rounded-full text-xs"><i class="fa-solid fa-play"></i></button>
-                                        <button className="bg-gray-700 text-white px-2 py-1 rounded-full text-xs"><i class="fa-solid fa-thumbs-up"></i></button>
-                                        <button className="bg-gray-700 text-white px-2 py-1 rounded-full text-xs"><i class="fa-solid fa-thumbs-down"></i></button>
-                                        <button className="bg-gray-700 text-white px-2 py-1 rounded-full text-xs"><i class="fa-solid fa-plus"></i></button>
-                                        <button className="bg-gray-700 text-white px-2 py-1 rounded-full text-xs"><i class="fa-solid fa-angle-down"></i></button>
+                                        <button className="bg-white text-black px-2 py-1 rounded-full text-xs"><i className="fa-solid fa-play"></i></button>
+                                        <button className="bg-gray-700 text-white px-2 py-1 rounded-full text-xs"><i className="fa-solid fa-thumbs-up"></i></button>
+                                        <button className="bg-gray-700 text-white px-2 py-1 rounded-full text-xs"><i className="fa-solid fa-thumbs-down"></i></button>
+                                        <button className="bg-gray-700 text-white px-2 py-1 rounded-full text-xs"><i className="fa-solid fa-plus"></i></button>
+                                        <button className="bg-gray-700 text-white px-2 py-1 rounded-full text-xs"><i className="fa-solid fa-angle-down"></i></button>
                                     </div>
                                 </div>
                             </div>
