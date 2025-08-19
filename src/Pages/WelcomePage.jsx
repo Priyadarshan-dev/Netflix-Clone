@@ -32,11 +32,9 @@ export const WelcomePage = () => {
                     <div>
                         <button
                             className="bg-red-600 px-5 py-1 rounded font-bold"
-                            onClick={() => setShowLogin(!showLogin)}
-                        >
+                            onClick={() => setShowLogin(!showLogin)} >
                             {showLogin ? "Sign In" : "Log In"}
                         </button>
-
                     </div>
                 </div>
                 <div className="py-30 flex flex-col items-center" >
@@ -49,14 +47,14 @@ export const WelcomePage = () => {
                                 Watch Anywhere    
                                 Cancel anytime
                             </div>
-                            <p className="font-bold lg:text-[19px] sm:text-[19px] ">
+                            <p className="font-bold md:text-[19px]">
                                 Ready to watch? Enter your email to create or restart membership
                             </p>
-                            <div className="py-5 pr-12 flex flex-col sm:flex-row md:gap-0 gap-1">
+                            <div className="py-5 pr-12 flex flex-col items-center sm:flex-row md:gap-0 gap-1">
                                 <input className="border p-5 border-gray-500 lg:pr-100 sm:pr-50 pr-20 bg-white text-black"
                                     type="text"
                                     placeholder="Email Address" />
-                                <button className=" bg-red-600 p-5 text-center px-10 self-start lg:px-25 ">Get Started</button>
+                                <button className=" bg-red-600 p-5 rounded text-center px-10 lg:px-25 ">Get Started</button>
                             </div>
                             <div>
                                 <button className="bg-red-600 px-5 py-2 rounded font-bold">

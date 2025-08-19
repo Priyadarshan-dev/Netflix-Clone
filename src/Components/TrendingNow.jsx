@@ -23,8 +23,8 @@ function TrendingNow() {
                 poster_path: movie.poster_path,
             });
             console.log("Added to My List!");
-        } catch (err) {
-            console.error("Error adding movie:", err);
+        } catch (error) {
+            console.error("Error adding movie:", error);
         }
     };
 

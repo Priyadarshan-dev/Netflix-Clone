@@ -68,7 +68,7 @@ const Navbar = () => {
                 </div>
             </nav>
             {isOpen && (
-                <div className='absolute top-16 left-0 w-full bg-gray-900 flex flex-col items-center space-y-4 py-4 md:hidden z-50'>
+                <div className='absolute top-16 left-0 w-full bg-black flex flex-col items-center space-y-4 py-4 md:hidden z-50'>
                     <NavLink to="/home" className="text-white text-xl" onClick={() => setIsOpen(false)}>Home</NavLink>
                     <NavLink to="/tvshows" className="text-white text-xl" onClick={() => setIsOpen(false)}>Tv Shows</NavLink>
                     <NavLink to="/movies" className="text-white text-xl" onClick={() => setIsOpen(false)}>Movies</NavLink>

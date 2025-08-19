@@ -13,7 +13,6 @@ function MyList() {
                 setMovies(snapshot.docs.map(doc => doc.data()));
             }
         );
-
         return () => removeListener();
     }, []);
 
